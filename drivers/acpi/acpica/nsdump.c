@@ -258,11 +258,12 @@ acpi_ns_dump_one_object(acpi_handle obj_handle,
 		switch (type) {
 		case ACPI_TYPE_PROCESSOR:
 
-			acpi_os_printf("ID %02X Len %02X Addr %8.8X%8.8X\n",
+			acpi_os_printf("ID %02X Len %02X Addr %p\n",
 				       obj_desc->processor.proc_id,
 				       obj_desc->processor.length,
-				       ACPI_FORMAT_UINT64(obj_desc->processor.
-							  address));
+				       ACPI_CAST_PTR(void,
+						     obj_desc->processor.
+						     address));
 			break;
 
 		case ACPI_TYPE_DEVICE:
